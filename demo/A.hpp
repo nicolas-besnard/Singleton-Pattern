@@ -18,7 +18,7 @@ public:
 
   void				hello()
   {
-    std::cout << "HELLO" << std::endl;
+    std::cout << "HELLO FROM A" << std::endl;
   }
 
 protected:
