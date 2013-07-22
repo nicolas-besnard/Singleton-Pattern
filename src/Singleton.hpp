@@ -8,11 +8,8 @@ class				GenericSingleton
 public:
   GenericSingleton() {}
   ~GenericSingleton() {}
-  GenericSingleton		&operator=(const GenericSingleton &other)
-  {
-    *this = other;
-    return *this;
-  }
+  GenericSingleton		&operator=(const GenericSingleton &other);
+  GenericSingleton(const GenericSingleton &other);
 };
 
 template <typename T>
