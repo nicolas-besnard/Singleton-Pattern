@@ -49,13 +49,9 @@ public:
     return reinterpret_cast<T &>(tmp);
   }
 
-  void					removeCollection()
+  void					clearCollection()
   {
-    SingletonMapIT			actualSingleton;
-    SingletonMapIT			lastSingleton;
-
-    for (; actualSingleton != lastSingleton; ++actualSingleton)
-      delete actualSingleton->second;
+    collection_.clear();
   }
 
 private:
