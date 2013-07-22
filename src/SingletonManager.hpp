@@ -26,24 +26,20 @@ public:
   template <typename T>
   static void				add()
   {
-    SingletonManager			&manager = SingletonManager::getInstance();
-
-    manager.doAdd<T>();
+    SingletonManager::getInstance().doAdd<T>();
   }
 
   template <typename T>
   void					doAdd()
   {
     if (collection_.find(typeid(T).name()) == collection_.end())
-      collection_[typeid(T).name()] = new T;
+      collection_[typeid(T).name()] = &T::getInstance();
   }
 
   template <typename T>
   static T				&get()
   {
-    SingletonManager			&manager = SingletonManager::getInstance();
-
-    return manager.doGet<T>();
+    return SingletonManager::getInstance().doGet<T>();
   }
 
   template <typename T>
@@ -59,7 +55,7 @@ public:
     SingletonMapIT			lastSingleton;
 
     for (; actualSingleton != lastSingleton; ++actualSingleton)
-      delete (*actualSingleton).second;
+      delete actualSingleton->second;
   }
 
 private:

@@ -10,12 +10,6 @@ class					A : public Singleton<A>
   friend class Singleton<A>;
 
 public:
-  A() {}
-  ~A() {}
-
-  A(const A &other);
-  A					&operator=(const A &other);
-
   void				hello()
   {
     std::cout << "HELLO FROM A" << std::endl;
@@ -24,7 +18,11 @@ public:
 protected:
 
 private:
+  A() {}
+  ~A() {}
 
+  A(const A &other);
+  A					&operator=(const A &other);
 };
 
 #endif					/* !A_HPP_ */
